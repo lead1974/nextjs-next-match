@@ -15,4 +15,3 @@ Creating a new Next.js app in C:\Andrey\LabWeb\nextjs\next-match.
 
 # 9
 npm install @nextui-org/react framer-motion
-testing!
