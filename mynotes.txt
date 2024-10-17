@@ -15,3 +15,7 @@ Creating a new Next.js app in C:\Andrey\LabWeb\nextjs\next-match.
 
 # 9
 npm install @nextui-org/react framer-motion
+npm i react-icons
+
+# 13 making NavLink marked as yellow upon click by using custom NavLink component
+in TopNav.tsx ==> 'data-[active=true]:text-yellow-200'
