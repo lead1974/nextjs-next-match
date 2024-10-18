@@ -2,6 +2,36 @@ services:
   postgres:
     image: postgres
     environment:
-      - POSTGRES_PASSWORD=postgrespw
+      - POSTGRES_PASSWORD=postgrespw!
     ports: 
       - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # web-app:
+  #   image: baldaivanovna/web-app
+  #   build: 
+  #     context: .
+  #     dockerfile: src/Dockerfile
+  #   volumes:
+  #     - /var/lib/web/data
+  #   # ports:
+  #   #   - 3000:3000
+  #   # extra_hosts:
+  #   #   - id.carsties.com:10.5.0.200
+  #   environment:
+  #     - AUTH_SECRET="v1lbEUQAmLU3ks9QxoLhT2VbZgloiqDtW+WpK8V6aDE="
+  #     - DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=SCHEMA
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+
+volumes:
+  pgdata:
+
