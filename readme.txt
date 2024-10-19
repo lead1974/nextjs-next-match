@@ -57,3 +57,16 @@ npm install -D @types/bcryptjs
 
 # 31 react-toastify
 npm i react-toastify
+
+# 40 adding tables Member and MemberPhoto
+npx prisma generate
+npx prisma db push
+
+# 41 seed dummy data all in prisma folder 
+# add this line to package.json
+"prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  }
+# to run the seed need to install ts-node 
+npm i -D ts-node
+npx prisma db seed
