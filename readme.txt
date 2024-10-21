@@ -70,3 +70,6 @@ npx prisma db push
 # to run the seed need to install ts-node 
 npm i -D ts-node
 npx prisma db seed
+
+# 53 adding Like feature to the project 
+npx prisma db push
