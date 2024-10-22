@@ -73,3 +73,10 @@ npx prisma db seed
 
 # 53 adding Like feature to the project 
 npx prisma db push
+
+# 69 Setting up Cloudinary : https://console.cloudinary.com/settings
+npm i cloudinary next-cloudinary
+
+# 75 challenge : update nav menu image updates and session cookies updates for avatar
+
+
