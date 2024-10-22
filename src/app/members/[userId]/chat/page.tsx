@@ -1,16 +1,32 @@
-import { CardHeader, Divider, CardBody } from '@nextui-org/react'
+import CardInnerWrapper from '@/components/CardInnerWrapper'
 import React from 'react'
 
-export default function ChatPage() {
+import { getAuthUserId } from '@/app/actions/authActions';
+import MessageBox from './MessageBox';
+import ChatForm from './ChatForm';
+import { getMessageThread } from '@/app/actions/messageActions';
+
+export default async function ChatPage({params}: {params: {userId: string}}) {
+    const userId = await getAuthUserId();
+    const messages = await getMessageThread(params.userId);
+
+    const body = (
+        <div>
+            {messages.length === 0 ? 'No messages to display' : (
+                <div>
+                    {messages.map(memberMessage => (
+                        <MessageBox key={memberMessage.id} message={memberMessage} currentUserId={userId}  />
+                    ))}
+                </div>
+            ) }
+        </div>
+    )
+
     return (
-        <>
-            <CardHeader className='text-2xl font-semibold text-secondary'>
-                Chat
-            </CardHeader>
-            <Divider />
-            <CardBody>
-                Chat goes here
-            </CardBody>
-        </>
+        <CardInnerWrapper 
+            header='Chat'
+            body={body}
+            footer={<ChatForm />}
+        />
     )
 }

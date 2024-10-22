@@ -79,4 +79,11 @@ npm i cloudinary next-cloudinary
 
 # 75 challenge : update nav menu image updates and session cookies updates for avatar
 
+# 80 setting prisma model MemberMessage
+npx prisma generate
+npx prisma db push
 
+# 85 install clsx
+npm i clsx
+
+# 91 check for read messages and bold messages that were not read yet
